@@ -1,7 +1,7 @@
 ![Language](https://img.shields.io/badge/language-C-blue)
 ![School](https://img.shields.io/badge/school-42-black)
 
-# cub3d
+# Cub3d 👾
 
 A 3D graphics engine written in C, simulating a first-person view inside a maze using the raycasting technique — the same technology behind Wolfenstein 3D (1992).
 Project developed as part of the 42 School curriculum.
