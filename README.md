@@ -174,8 +174,8 @@ typedef struct s_player {
     double  pos_y;      // Y position
     double  dir_x;      // Direction vector X
     double  dir_y;      // Direction vector Y
-    double  plane_x;    // Camera plane X
-    double  plane_y;    // Camera plane Y
+    double  room_plane_x;    // Camera plane X
+    double  room_plane_y;    // Camera plane Y
 } t_player;
 ```
 
