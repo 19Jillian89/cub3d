@@ -1,0 +1,13 @@
+NO ./textures/wall_floor/no.xpm
+SO ./textures/wall_floor/so.xpm
+WE ./textures/wall_floor/we.xpm
+EA ./textures/wall_floor/ea.xpm
+F 1,16,26
+C 40,45,50
+
+1111111111
+1000000001
+10N0000001
+1001111001
+1000000001
+1111111111

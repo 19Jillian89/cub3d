@@ -1,0 +1,101 @@
+EDGE CASES DA TESTARE PER IL PARSER DI CUB3D
+
+========================================================================
+CASI VALIDI (il programma deve funzionare)
+========================================================================
+
+1. Mappa valida base
+   - NO/SO/WE/EA con path a texture
+   - F e C con colori validi (0-255)
+   - Mappa chiusa da muri
+   - Un giocatore (N/S/E/W)
+
+2. Elementi in ordine diverso
+   - F e C prima delle texture
+   - Mappa in fondo
+
+3. Linee vuote tra gli elementi
+   - Una o piu linee vuote tra NO e SO, ecc.
+
+4. Spazi multipli negli elementi
+   - F   220,100,0 (spazi multipli)
+
+5. Orientamenti diversi del giocatore
+   - N (nord)
+   - S (sud)
+   - E (est)
+   - W (ovest)
+
+========================================================================
+CASI DI ERRORE (il programma deve stampare "Error\n" e uscire)
+========================================================================
+
+1. Estensione file sbagliata
+   - File non termina con .cub
+   - Esempio: test.txt, test.map
+
+2. Chiave sconosciuta
+   - X ./textures/no.xpm
+   - K 220,100,0
+
+3. Chiave duplicata
+   - NO ./textures/no.xpm
+   - NO ./textures/altro.xpm
+
+4. Colore fuori range
+   - F 300,100,0 (rosso > 255)
+   - F 100,300,0 (verde > 255)
+   - F 100,100,300 (blu > 255)
+   - F -1,100,0 (negativo)
+
+5. Formato colore sbagliato
+   - F 220,100 (mancano blu)
+   - F 220 (solo un valore)
+   - F 220,100,0,50 (troppi valori)
+   - F 220;100;0 (punto e virgola invece di virgola)
+   - F 220.100.0 (punti invece di virgola)
+
+6. Path texture inesistente
+   - NO ./textures/inesistente.xpm
+
+7. Mappa non chiusa (bordo aperto)
+   - Riga piu corta del massimo
+   - Bordo con 0 invece di 1
+
+8. Nessun giocatore
+   - Nella mappa non c'e N/S/E/W
+
+9. Piu di un giocatore
+   - Due o piu N
+   - N e S insieme
+
+10. Carattere non valido nella mappa
+    - X, Y, Z, 9, @, %, &, !
+
+11. Riga vuota nel mezzo della mappa
+    - (non tutte le implementazioni la gestiscono)
+
+12. Map vuota (solo spazi)
+
+13. File completamente vuoto
+
+14. Argomenti multipli al programma
+    - ./cub3D maps/test.cub extra_arg
+
+15. Nessun argomento
+    - ./cub3D
+
+========================================================================
+COME TESTARE
+========================================================================
+
+Per ogni caso di errore:
+1. Crea un file .cub con l'errore
+2. Esegui ./cub3D <file.cub>
+3. Verifica che stampi "Error\n" + messaggio
+4. Verifica che il programma termini con exit(1)
+
+Per ogni caso valido:
+1. Crea un file .cub valido
+2. Esegui ./cub3D <file.cub>
+3. Verifica che il gioco si apra senza errori
